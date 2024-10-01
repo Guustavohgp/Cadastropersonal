@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Trainer GP - Cadastro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Personal Trainer GP</h2>
+        <p>Faça seu cadastro</p>
+
+        <form id="cadastroForm" onsubmit="return validarCadastro()">
+            <label for="usuario">Usuário:</label>
+            <input type="text" id="usuario" name="usuario" required>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <div id="mensagemCadastro" class="mensagem"></div>
+    </div>
+
+    <script>
+        function validarCadastro() {
+            const usuario = document.getElementById("usuario").value;
+            const senha = document.getElementById("senha").value;
+            const mensagemCadastro = document.getElementById("mensagemCadastro");
+
+            // Validação simples para simular um cadastro (ajuste para backend)
+            if (usuario && senha.length >= 6) {
+                mensagemCadastro.textContent = "Cadastro realizado com sucesso!";
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 2000);
+            } else {
+                mensagemCadastro.textContent = "A senha deve ter pelo menos 6 caracteres!";
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
