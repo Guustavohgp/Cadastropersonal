@@ -30,17 +30,18 @@
             const senha = document.getElementById("senha").value;
             const mensagemCadastro = document.getElementById("mensagemCadastro");
 
-            // Validação simples para simular um cadastro (ajuste para backend)
+            // Simulação simples de cadastro (aqui você poderia adicionar a lógica de backend)
             if (usuario && senha.length >= 6) {
                 mensagemCadastro.textContent = "Cadastro realizado com sucesso!";
+                // Aguardar 3 segundos antes de redirecionar
                 setTimeout(() => {
-                    window.location.href = "index.html";
-                }, 2000);
+                    window.location.href = "index.html";  // Aqui redireciona para a página de login
+                }, 3000);  // Espera 3 segundos antes de redirecionar
             } else {
                 mensagemCadastro.textContent = "A senha deve ter pelo menos 6 caracteres!";
                 return false;
             }
-            return true;
+            return false;  // Para impedir o envio imediato do formulário
         }
     </script>
 </body>

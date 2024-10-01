@@ -31,9 +31,9 @@
             const senha = document.getElementById("senha").value;
             const mensagemLogin = document.getElementById("mensagemLogin");
 
-            // Simulação de validação (pode ser adaptada para buscar no backend)
+            // Simulação de validação de login
             if (usuario === "usuarioTeste" && senha === "123456") {
-                window.location.href = "paginaTreino.html";
+                window.location.href = "planoTreino.html";
             } else {
                 mensagemLogin.textContent = "Usuário ou senha inválidos!";
                 return false;
