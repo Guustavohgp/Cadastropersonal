@@ -3,49 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login e Cadastro de Usuário</title>
+    <title>Personal Trainer GP - Login</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <div class="form-container">
-            <h2>Login</h2>
-            <form id="loginForm" onsubmit="return validarLogin()">
-                <label for="loginUsername">Nome de Usuário:</label>
-                <input type="text" id="loginUsername" name="loginUsername" required>
+        <h2>Personal Trainer GP</h2>
+        <p>Seja Bem Vindo ao Personal Trainer GP</p>
 
-                <label for="loginPassword">Senha:</label>
-                <input type="password" id="loginPassword" name="loginPassword" required>
+        <form id="loginForm" onsubmit="return validarLogin()">
+            <label for="usuario">Usuário:</label>
+            <input type="text" id="usuario" name="usuario" required>
 
-                <button type="submit">Entrar</button>
-            </form>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
 
-            <p class="cadastro-link">Não tem uma conta? <a href="#" onclick="mostrarFormularioCadastro()">Cadastre-se aqui</a></p>
+            <button type="submit">Entrar</button>
+        </form>
 
-            <div id="mensagemLogin" class="mensagem"></div>
-        </div>
-
-        <div class="form-container hidden" id="cadastroContainer">
-            <h2>Cadastro</h2>
-            <form id="cadastroForm" onsubmit="return validarCadastro()">
-                <label for="username">Nome de Usuário:</label>
-                <input type="text" id="username" name="username" required>
-
-                <label for="password">Senha:</label>
-                <input type="password" id="password" name="password" required>
-
-                <label for="confirmPassword">Confirmar Senha:</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" required>
-
-                <button type="submit">Cadastrar</button>
-            </form>
-
-            <p class="cadastro-link">Já tem uma conta? <a href="#" onclick="mostrarFormularioLogin()">Faça login</a></p>
-
-            <div id="mensagemCadastro" class="mensagem"></div>
-        </div>
+        <button onclick="irParaCadastro()">Criar Conta</button>
+        <div id="mensagemLogin" class="mensagem"></div>
     </div>
 
-    <script src="scripts.js"></script>
+    <script>
+        function validarLogin() {
+            const usuario = document.getElementById("usuario").value;
+            const senha = document.getElementById("senha").value;
+            const mensagemLogin = document.getElementById("mensagemLogin");
+
+            // Simulação de validação (pode ser adaptada para buscar no backend)
+            if (usuario === "usuarioTeste" && senha === "123456") {
+                window.location.href = "paginaTreino.html";
+            } else {
+                mensagemLogin.textContent = "Usuário ou senha inválidos!";
+                return false;
+            }
+            return true;
+        }
+
+        function irParaCadastro() {
+            window.location.href = "cadastro.html";
+        }
+    </script>
 </body>
 </html>
