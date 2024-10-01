@@ -4,14 +4,14 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
+    height: 100%; /* Define altura total */
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
 }
 
 .container {
