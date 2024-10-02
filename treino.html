@@ -55,18 +55,31 @@
 
         .btn {
             display: inline-block;
-            width: 100%;
-            padding: 10px 0;
+            padding: 10px 15px; /* Reduzido para tornar o botão menor */
             background-color: #3498db;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px; /* Diminui o tamanho da fonte */
+            margin-bottom: 10px; /* Espaço entre os botões */
+            text-align: center; /* Centraliza o texto do botão */
         }
 
         .btn:hover {
             background-color: #2980b9;
+        }
+
+        /* Estilo específico para o botão "Voltar" */
+        .btn-back {
+            margin-right: 10px; /* Espaço à direita do botão "Voltar" */
+        }
+
+        /* Container para os botões */
+        .button-container {
+            display: flex;
+            justify-content: space-between; /* Espaço entre os botões */
+            margin-top: 15px; /* Espaço acima do container */
         }
     </style>
     <script>
@@ -184,7 +197,10 @@
                 <option value="Avançado">Avançado</option>
             </select>
 
-            <button type="submit" class="btn">Gerar Plano de Treino</button>
+            <div class="button-container">
+                <a href="index.html" class="btn btn-back">Voltar à tela Inicial</a> <!-- Botão com a classe específica -->
+                <button type="submit" class="btn">Gerar Plano de Treino</button>
+            </div>
         </form>
     </div>
 </body>
