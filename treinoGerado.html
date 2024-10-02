@@ -69,6 +69,7 @@
         <p id="resultado"></p>
         <div class="titulo-plano">Plano de treino:</div>
         <a href="treino.html" class="btn">Voltar ao Treino</a>
+        <script src="treino.js" defer></script> 
     </div>
 
     <script>
@@ -87,38 +88,43 @@
         return { nome, idade, sexo, biotipo, dias, tipoTreino, objetivo, nivel };
     }
 
-    // Função para exibir as informações na página
-    function exibirInformacoes() {
-        const { nome, idade, sexo, biotipo, dias, tipoTreino, objetivo, nivel } = obterParametros();
-        const resultado = document.getElementById('resultado');
+     // Função para exibir as informações na página
+     function exibirInformacoes() {
+            const params = obterParametros();
+            const resultado = document.getElementById('resultado');
 
-        // Verifica se o tipo de treino é "peso livre"
-        if (tipoTreino.toLowerCase() === "peso livre") {
-            resultado.innerHTML = `
-                <strong>Nome:</strong> ${nome}<br>
-                <strong>Idade:</strong> ${idade}<br>
-                <strong>Sexo:</strong> ${sexo}<br>
-                <strong>Biotipo Corporal:</strong> ${biotipo}<br>
-                <strong>Dias Disponíveis para Treino:</strong> ${dias}<br>
-                <strong>Tipo de Treino:</strong> ${tipoTreino}<br>
-                <strong>Objetivo:</strong> ${objetivo}<br>
-                <strong>Nível de Experiência:</strong> ${nivel}<br>
-            `;
-        } else {
-            resultado.innerHTML = `
-                <strong>Nome:</strong> ${nome}<br>
-                <strong>Idade:</strong> ${idade}<br>
-                <strong>Sexo:</strong> ${sexo}<br>
-                <strong>Biotipo Corporal:</strong> ${biotipo}<br>
-                <strong>Dias Disponíveis para Treino:</strong> ${dias}<br>
-                <strong>Tipo de Treino:</strong> ${tipoTreino}<br>
-                <strong>Nível de Experiência:</strong> ${nivel}<br>
-            `;
+            // Verifica se o tipo de treino é "peso livre"
+            if (params.tipoTreino.toLowerCase() === "peso livre") {
+                resultado.innerHTML = `
+                    <strong>Nome:</strong> ${params.nome}<br>
+                    <strong>Idade:</strong> ${params.idade}<br>
+                    <strong>Sexo:</strong> ${params.sexo}<br>
+                    <strong>Biotipo Corporal:</strong> ${params.biotipo}<br>
+                    <strong>Dias Disponíveis para Treino:</strong> ${params.dias}<br>
+                    <strong>Tipo de Treino:</strong> ${params.tipoTreino}<br>
+                    <strong>Objetivo:</strong> ${params.objetivo}<br>
+                    <strong>Nível de Experiência:</strong> ${params.nivel}<br>
+                `;
+
+              
+            } else {
+                resultado.innerHTML = `
+                    <strong>Nome:</strong> ${params.nome}<br>
+                    <strong>Idade:</strong> ${params.idade}<br>
+                    <strong>Sexo:</strong> ${params.sexo}<br>
+                    <strong>Biotipo Corporal:</strong> ${params.biotipo}<br>
+                    <strong>Dias Disponíveis para Treino:</strong> ${params.dias}<br>
+                    <strong>Tipo de Treino:</strong> ${params.tipoTreino}<br>
+                    <strong>Nível de Experiência:</strong> ${params.nivel}<br>
+                `;
+            }
+              // Chama a função de gerar treino
+              const planoTreino = gerarRotinaTreino(params);
+                resultado.innerHTML += `<strong>Plano de Treino:</strong><br>${planoTreino}`;
         }
-    }
 
-    // Chama a função para exibir as informações ao carregar a página
-    window.onload = exibirInformacoes;
+        // Chama a função para exibir as informações ao carregar a página
+        window.onload = exibirInformacoes;
     </script>
 </body>
 </html>
