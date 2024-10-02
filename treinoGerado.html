@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treino Gerado</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Centralizar a página usando Flexbox */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Treino Gerado</h1>
+        <p id="resultado"></p>
+        <a href="treino.html" class="btn">Voltar ao Treino</a>
+    </div>
+
+    <script>
+        // Função para obter os parâmetros da URL
+        function obterParametros() {
+            const params = new URLSearchParams(window.location.search);
+            const nome = params.get('nome');
+            const idade = params.get('idade');
+            const sexo = params.get('sexo');
+            const biotipo = params.get('biotipo');
+            const dias = params.get('dias');
+            const tipoTreino = params.get('tipoTreino');
+            const objetivo = params.get('objetivo');
+            const nivel = params.get('nivel');
+
+            return { nome, idade, sexo, biotipo, dias, tipoTreino, objetivo, nivel };
+        }
+
+        // Função para exibir as informações na página
+        function exibirInformacoes() {
+            const { nome, idade, sexo, biotipo, dias, tipoTreino, objetivo, nivel } = obterParametros();
+            const resultado = document.getElementById('resultado');
+
+            resultado.innerHTML = `
+                <strong>Nome:</strong> ${nome}<br>
+                <strong>Idade:</strong> ${idade}<br>
+                <strong>Sexo:</strong> ${sexo}<br>
+                <strong>Biotipo Corporal:</strong> ${biotipo}<br>
+                <strong>Dias Disponíveis para Treino:</strong> ${dias}<br>
+                <strong>Tipo de Treino:</strong> ${tipoTreino}<br>
+                <strong>Objetivo:</strong> ${objetivo}<br>
+                <strong>Nível de Experiência:</strong> ${nivel}<br>
+            `;
+        }
+
+        // Chama a função para exibir as informações ao carregar a página
+        window.onload = exibirInformacoes;
+    </script>
+</body>
+</html>
